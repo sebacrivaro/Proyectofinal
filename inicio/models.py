@@ -4,5 +4,12 @@ from django.db import models
 
 class Jugador(models.Model):
     
-    def __str__(self):
-        return 
+    edad = models.IntegerField()
+    nombre = models.CharField(max_length=30)
+    equipo_nba = models.CharField(max_length=20)
+    
+class Equipo(models.Model):
+    
+    nombre_equipo = models.CharField(max_length=20)
+    fundacion = models.IntegerField()
+    torneos_ganados = models.IntegerField()

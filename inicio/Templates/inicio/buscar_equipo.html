@@ -1,0 +1,21 @@
+{% extends "inicio/index.html" %}
+{% load static %}
+{% block title_head %}
+Buscador de plantillas
+{% endblock title_head %}
+
+{% block h1_header %}Buscador de plantillas{% endblock h1_header %}
+
+{% block main %}
+
+{% if jugadores %}
+<ul>
+    {% for jugador in jugadores %}
+    <li>{{jugador}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No hay jugadores registrados para este equipo</p>
+{% endif %}
+
+{% endblock main %}

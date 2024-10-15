@@ -1,0 +1,17 @@
+{% extends "inicio/index.html" %}
+{% load static %}
+{% block title_head %}
+Equipo
+{% endblock title_head %}
+
+{% block h1_header %}Creacion del equipo{% endblock h1_header %}
+
+<form action={% url "inicio:crear_equipo" %} method="POST">
+
+    {% csrf_token %}
+
+    {{form}}
+
+    <input type="submit" value="Enviar">
+
+</form>
