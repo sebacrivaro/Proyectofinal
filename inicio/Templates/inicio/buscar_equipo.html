@@ -1,21 +1,27 @@
 {% extends "inicio/index.html" %}
 {% load static %}
 {% block title_head %}
-Buscador de plantillas
+Buscador de equipos
 {% endblock title_head %}
 
-{% block h1_header %}Buscador de plantillas{% endblock h1_header %}
+{% block h1_header %}Buscador de equipos{% endblock h1_header %}
 
 {% block main %}
 
-{% if jugadores %}
-<ul>
-    {% for jugador in jugadores %}
-    <li>{{jugador}}</li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No hay jugadores registrados para este equipo</p>
-{% endif %}
+<form action={% url "inicio:buscar_equipo" %}>
+    {{form}}
+    <input type="submit" type="Buscar">
+</form>
+    
+    {% if equipos %}
+    <ul>
+        {% for equipo in equipos %}
+            <li>{{equipo}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay equipos registrados con ese nombre</p>
+    {% endif %}
+        
 
 {% endblock main %}

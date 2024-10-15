@@ -6,7 +6,10 @@ Equipo
 
 {% block h1_header %}Creacion del equipo{% endblock h1_header %}
 
-<form action={% url "inicio:crear_equipo" %} method="POST">
+
+{% block main %}
+
+<form action={% url "inicio:crear_equipo" %} method='POST'>
 
     {% csrf_token %}
 
@@ -15,3 +18,5 @@ Equipo
     <input type="submit" value="Enviar">
 
 </form>
+
+{% endblock main %}
