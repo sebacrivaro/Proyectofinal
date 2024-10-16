@@ -4,11 +4,7 @@
 
 El proyecto de buscador de equipos es una web programada en Python utilizando Django como framework, el proyecto fue desarrollado para la ultima preentrega de la plataforma CoderHouse.
 
-La pagina web se encarga basicamente de recibir un equipo de cualquier deporte (basquet, futbol, rugby, etc) ingresando nombre del equipo, año en que se
-
-fundó, y la cantidad de torneos ganados. La misma se encargara luego de buscar dicho/s equipo/s (si es que existen), en la base de datos, por nombre del equipo
-
-y devolver una lista de equipos con ese nombre.
+La pagina web se encarga basicamente de recibir un equipo de cualquier deporte (basquet, futbol, rugby, etc) ingresando nombre del equipo, año en que sefundó, y la cantidad de torneos ganados. La misma se encargara luego de buscar dicho/s equipo/s (si es que existen), en la base de datos, por nombre del equipo y devolver una lista de equipos con ese nombre.
 
 ## Tecnologías utilizadas:
 [![Python](https://skillicons.dev/icons?i=python&theme=dark)](https://www.python.org/)
