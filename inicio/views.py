@@ -4,10 +4,12 @@ from django.shortcuts import render, redirect
 from inicio.models import Equipo
 from inicio.forms import CrearEquipoForm, BuscarEquipo
 
+from django.contrib.auth.decorators import login_required
+
 def inicio(request):
     return render(request, 'inicio/index.html')
 
-
+@login_required
 def crear_equipo(request):
     formulario = CrearEquipoForm()
     
@@ -22,6 +24,7 @@ def crear_equipo(request):
     
     return render(request, 'inicio/crear_equipo.html', {'form':formulario})
 
+@login_required
 def buscar_equipo(request):
     
     formulario = BuscarEquipo(request.GET)
