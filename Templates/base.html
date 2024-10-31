@@ -27,9 +27,16 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href={% url "inicio:inicio" %}>Inicio</a>
+<<<<<<< HEAD
                 <a class="navbar-brand" href={% url "inicio:equipo" %}>Equipos</a>
                 {% if request.user.is_authenticated %}
                 <a class="navbar-brand" href={% url "usuario:editar_perfil" %}>{{request.user.username}}</a>
+=======
+                <a class="navbar-brand" href={% url "inicio:crear_equipo" %}>Equipos</a>
+                <a class="navbar-brand" href={% url "inicio:buscar_equipo" %}>Buscador de equipos</a>
+                {% if request.user.is_authenticated %}
+                <a class="navbar-brand" href="#">{{request.user.username}}</a>
+>>>>>>> 0d34508bb02f4d232c84a2473320fef391d90e6c
                 <form action={% url "usuario:logout" %} method='POST'>
                     {% csrf_token %}
                     <input type="submit" class="btn btn-secondary" value="Cerrar Sesion">
