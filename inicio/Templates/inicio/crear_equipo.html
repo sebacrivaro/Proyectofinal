@@ -1,22 +1,18 @@
-{% extends "inicio/index.html" %}
-{% load static %}
+{% extends "base.html" %}
+
 {% block title_head %}
-Equipo
+Crear Equipo
 {% endblock title_head %}
 
-{% block h1_header %}Creacion del equipo{% endblock h1_header %}
-
+{% block h1_header %}Crear Equipo{% endblock h1_header %}
 
 {% block main %}
 
-<form action={% url "inicio:crear_equipo" %} method='POST'>
-
+<form action={% url "home:crear_equipo" %} method="post">
     {% csrf_token %}
 
     {{form}}
 
-    <input type="submit" value="Enviar">
-
+    <input type="submit" value="Crear">
 </form>
-
 {% endblock main %}

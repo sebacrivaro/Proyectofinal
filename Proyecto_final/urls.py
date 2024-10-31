@@ -1,5 +1,5 @@
 """
-URL configuration for pre_entrega_final project.
+URL configuration for Proyecto_final project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('inicio.urls'))
+    path('', include('inicio.urls')),
+    path('usuario/', include('usuario.urls')),
 ]

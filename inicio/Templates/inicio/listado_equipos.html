@@ -1,0 +1,17 @@
+{% extends "inicio/index.html" %}
+{% load static %}
+{% block title_head %}
+Ver equipos
+{% endblock title_head %}
+
+{% block h1_header %}Ver equipos{% endblock h1_header %}
+
+{% block main %}
+
+<ul>
+    <li>Nombre del equipo: {{equipo.nombre_equipo}}</li>
+    <li>Fundacion: {{equipo.Fundacion}}</li>
+    <li>Titulos: {{equipo.torneos_ganados}}</li>
+</ul>
+
+{% endblock main %}

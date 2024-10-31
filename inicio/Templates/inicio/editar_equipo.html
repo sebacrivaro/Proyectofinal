@@ -1,0 +1,18 @@
+{% extends "inicio/index.html" %}
+
+{% block title_head %}
+Editar Equipo
+{% endblock title_head %}
+
+{% block h1_header %}Editar {{equipo.id}}{% endblock h1_header %}
+
+{% block main %}
+
+<form action={% url "inicio:editar_equipo" equipo.id %} method="post">
+    {% csrf_token %}
+
+    {{form}}
+
+    <input type="submit" value="Editar">
+</form>
+{% endblock main %}
