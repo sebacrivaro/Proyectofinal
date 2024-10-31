@@ -8,39 +8,8 @@ from inicio.forms import EditarEquipo, BuscarEquipo
 
 from django.contrib.auth.decorators import login_required
 
-from django.contrib.auth.decorators import login_required
-
 def inicio(request):
     return render(request, 'inicio/index.html')
-
-<<<<<<< HEAD
-def team(request):
-=======
-@login_required
-def crear_equipo(request):
-    formulario = CrearEquipoForm()
-    
-    if request.method == 'POST':
-        formulario = CrearEquipoForm(request.POST)
-        if formulario.is_valid():
-            data = formulario.cleaned_data
-            equipo = Equipo(nombre_equipo = data.get('nombre_equipo'), fundacion = data.get('fundacion'), torneos_ganados = data.get('torneos_ganados'))
-            equipo.save()
-            return redirect('inicio:buscar_equipo')
-    
-    
-    return render(request, 'inicio/crear_equipo.html', {'form':formulario})
-
-@login_required
-def buscar_equipo(request):
-    
->>>>>>> 0d34508bb02f4d232c84a2473320fef391d90e6c
-    formulario = BuscarEquipo(request.GET)
-    
-    if formulario.is_valid():
-        lista_equipos = Equipo.objects.filter(nombre_equipo__icontains=formulario.cleaned_data.get('nombre_equipo',''))
-    
-    return render(request, 'inicio/equipo.html',{'form':formulario, 'equipos':lista_equipos})
 
 
 class CrearEquipo(CreateView):
