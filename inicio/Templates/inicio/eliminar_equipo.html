@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Eliminar Equipo
+{% endblock title_head %}
+
+{% block h1_header %}Eliminar Equipo{% endblock h1_header %}
+
+{% block main %}
+
+<form action={% url "inicio:eliminar_equipo" equipo.id %} method="post">
+    {% csrf_token %}
+
+    <p>Desea eliminar el equipo? {{equipo}}</p>
+
+    <input type="submit" value="Confirmar">
+</form>
+{% endblock main %}

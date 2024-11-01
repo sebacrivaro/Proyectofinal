@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title_head %}
+Ver equipo
+{% endblock title_head %}
+
+{% block h1_header %}{{equipo}}{% endblock h1_header %}
+
+{% block main %}
+
+<a href={% url "inicio:crear_equipo" %}>Crear equipo</a>
+        
+<form action={% url "inicio:ver_equipo" equipo.id %}>
+
+    {{form}}
+
+    <input type="submit" value="Buscar">
+
+</form>
+
+{% if equipos %}
+    <ul>
+        {% for equipo in equipos %}
+        <li>
+            <li>Nombre del equipo: {{equipo.nombre_equipo}}</li>
+            <li>Fundacion: {{equipo.fundacion}}</li>
+            <li>Titulos: {{equipo.torneos_ganados}}</li>
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock main %}

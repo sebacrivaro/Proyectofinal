@@ -1,4 +1,4 @@
-{% extends "inicio/index.html" %}
+{% extends "base.html" %}
 
 {% block title_head %}
 Editar Equipo
@@ -8,7 +8,7 @@ Editar Equipo
 
 {% block main %}
 
-<form action={% url "inicio:editar_equipo" equipo.id %} method="post">
+<form action={% url "inicio:editar_equipo" equipo.id%} method="post">
     {% csrf_token %}
 
     {{form}}

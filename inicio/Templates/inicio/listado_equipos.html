@@ -1,4 +1,4 @@
-{% extends "inicio/index.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% block title_head %}
 Ver equipos
@@ -8,10 +8,21 @@ Ver equipos
 
 {% block main %}
 
+<button><a href={% url "inicio:crear_equipo" %}>Agregar Equipos</a></button>
+{% if equipos %}
 <ul>
-    <li>Nombre del equipo: {{equipo.nombre_equipo}}</li>
-    <li>Fundacion: {{equipo.Fundacion}}</li>
-    <li>Titulos: {{equipo.torneos_ganados}}</li>
+    {% for equipo in equipos %}
+    <li>{{equipo}}
+        <a href={% url "inicio:ver_equipo" equipo.pk %}>Ver Mas</a>
+        <a href={% url "inicio:editar_equipo" equipo.pk %}>Editar</a>
+        <a href={% url "inicio:eliminar_equipo" equipo.pk %}>Eliminar</a>
+    <p>-----------------------------------------------</p>
+    </li>
+    {% endfor %}
 </ul>
+{% else %}
 
+    <p>No existen equipos aun</p>
+
+{% endif %}
 {% endblock main %}

@@ -1,9 +1,5 @@
 from django.shortcuts import render, redirect
-<<<<<<< HEAD
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
-=======
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
->>>>>>> 0d34508bb02f4d232c84a2473320fef391d90e6c
 from django.contrib.auth import authenticate, login as django_login
 from usuario.forms import FormularioDeRegistroDeUsuario
 
@@ -38,14 +34,8 @@ def register(request):
             
             return redirect('usuario:login')
     
-<<<<<<< HEAD
     return render(request, 'usuario/register.html', {'form':formulario})
 
 def editar_perfil(request):
-    
     formulario = UserChangeForm()
-    
     return render(request, 'usuario/editar_perfil.html', {'form':formulario}) 
-=======
-    return render(request, 'usuario/register.html', {'form':formulario})
->>>>>>> 0d34508bb02f4d232c84a2473320fef391d90e6c

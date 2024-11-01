@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 
 from inicio.models import Equipo
@@ -11,35 +12,30 @@ from django.contrib.auth.decorators import login_required
 def inicio(request):
     return render(request, 'inicio/index.html')
 
-
 class CrearEquipo(CreateView):
     model = Equipo
-    template_name = 'inicio/crear_equipo.html'
+    template_name = "inicio/crear_equipo.html"
+    success_url = reverse_lazy('inicio:ver_equipo')
     fields = ['nombre_equipo', 'fundacion', 'torneos_ganados']
-    success_url = reverse_lazy('inicio/equipo.html')
-    
-def eliminar_equipo(request, id_equipo):
-        equipo = Equipo.objects.get(id=id_equipo)
-        equipo.delete
-        return redirect('inicio:buscar_equipo') 
-    
-def editar_equipo(request, id_equipo):
-    equipo = Equipo.objects.get(id=id_equipo)
-    formulario = EditarEquipo(initial={'nombre_equipo':equipo.nombre_equipo, 'fundacion':equipo.fundacion, 'torneos_ganados':equipo.torneos_ganados})
-    if request.method == 'POST':
-        formulario = EditarEquipo(request.POST)
-        if formulario.is_valid():
-            
-            equipo.nombre_equipo = formulario.cleaned_data['nombre_equipo']
-            equipo.fundacion = formulario.cleaned_data['fundacion']
-            equipo.torneos_ganados = formulario.cleaned_data['torneos_ganados']
-            
-            equipo.save()
-            
-            return redirect('inicio:equipo')
-        
-    return render(request, 'inicio/editar_equipo.html', {'form':formulario})
+
+class ListaEquipos(ListView):
+    model = Equipo
+    template_name = "inicio/listado_equipos.html"
+    context_object_name = 'equipos'
 
 class VerEquipo(DetailView):
     model = Equipo
-    template_name = 'inicio/listado_equipos.html'
+    template_name = "inicio/ver_equipo.html"
+    
+class EditarEquipo(UpdateView):
+    model = Equipo
+    template_name = "inicio/editar_equipo.html"
+    success_url = reverse_lazy('inicio:listado_equipos')
+    fields = ['nombre_equipo', 'fundacion', 'torneos_ganados']
+
+
+class EliminarEquipo(DeleteView):
+    model = Equipo
+    template_name = "inicio/eliminar_equipo.html"
+    success_url = reverse_lazy('inicio:listado_equipos')
+    
