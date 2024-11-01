@@ -34,4 +34,4 @@ pip install -r requirements.txt
 
 # Ejecuta el servidor de desarrollo
 python manage.py runserver
-```
+```# Proyectofinal
