@@ -12,3 +12,4 @@ urlpatterns = [
     path('equipos/<int:pk>/eliminar/', views.EliminarEquipo.as_view(), name='eliminar_equipo'),       
 ]
 
+## pepito
