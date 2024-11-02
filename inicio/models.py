@@ -10,4 +10,4 @@ class Equipo(models.Model):
     torneos_ganados = models.IntegerField()
     
     def __str__(self):
-        return f'{self.id}{self.nombre_equipo} {self.fundacion} {self.torneos_ganados}'
+        return (f'id:{self.id}, Nombre del equipo:{self.nombre_equipo}, Fundacion:{self.fundacion}, Cantidad de torneos:{self.torneos_ganados}')

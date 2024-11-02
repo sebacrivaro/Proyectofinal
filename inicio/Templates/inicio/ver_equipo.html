@@ -8,13 +8,11 @@ Ver equipo
 
 {% block main %}
 
-<a href={% url "inicio:crear_equipo" %}>Crear equipo</a>
+<button><a href={% url "inicio:crear_equipo" %}>Crear Nuevo Equipo</a></button>
         
 <form action={% url "inicio:ver_equipo" equipo.id %}>
 
     {{form}}
-
-    <input type="submit" value="Buscar">
 
 </form>
 

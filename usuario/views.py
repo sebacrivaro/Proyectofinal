@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth import authenticate, login as django_login
-from usuario.forms import FormularioDeRegistroDeUsuario
+from usuario.forms import FormularioDeRegistroDeUsuario, FormularioDeEdicion
 
 def login(request):
     
@@ -37,5 +37,9 @@ def register(request):
     return render(request, 'usuario/register.html', {'form':formulario})
 
 def editar_perfil(request):
-    formulario = UserChangeForm()
+    formulario = FormularioDeEdicion(instance=request.user)
+    
+    if request.method =='POST':
+        formulario = FormularioDeEdicion(instance=request.user)
+            
     return render(request, 'usuario/editar_perfil.html', {'form':formulario}) 
