@@ -1,10 +1,14 @@
-# BUSCADOR DE EQUIPOS - SEBASTIAN CRIVARO CODERHOUSE 2024
+# PROYECTO FINAL - SEBASTIAN CRIVARO CODERHOUSE 2024
 
 ## Descripción:
 
-El proyecto de buscador de equipos es una web programada en Python utilizando Django como framework, el proyecto fue desarrollado para la ultima preentrega de la plataforma CoderHouse.
+El proyecto de buscador de equipos y jugadores es una web programada en Python utilizando Django como framework, el proyecto fue desarrollado para la ultima entrega de la plataforma CoderHouse.
 
-La pagina web se encarga basicamente de recibir un equipo de cualquier deporte (basquet, futbol, rugby, etc) ingresando nombre del equipo, año en que sefundó, y la cantidad de torneos ganados. La misma se encargara luego de buscar dicho/s equipo/s (si es que existen), en la base de datos, por nombre del equipo y devolver una lista de equipos con ese nombre.
+La pagina web se encarga basicamente de recibir un equipo de cualquier deporte (basquet, futbol, rugby, etc) ingresando nombre del equipo, año en que se fundó, y la cantidad de torneos ganados y a su vez recibir informacion de un jugador (nombre, numero de camiseta y equipo en el que juega). La misma se encargara luego de buscar dicho/s equipo/s y jugadores (si es que existen), en la base de datos y devolver una lista de equipos y jugadores. A su vez se podra editar dichos equipos y jugadores y eliminarlos
+
+## Nota adicional:
+Unicamente los usuarios registrados y logueados podran crear jugadores y equipos, eliminarlos y editarlos.
+
 
 ## Tecnologías utilizadas:
 [![Python](https://skillicons.dev/icons?i=python&theme=dark)](https://www.python.org/)
@@ -14,24 +18,5 @@ La pagina web se encarga basicamente de recibir un equipo de cualquier deporte (
 [![Bootstrap](https://skillicons.dev/icons?i=bootstrap&theme=dark)](https://getbootstrap.com/)
 
 
-## Instalación:
-
-Instrucciones de instalacion del proyecto en un entorno local con Python 3.12.6 instalado.
-
-```bash
-# Clona el repositorio
-git clone https://github.com/juan4171/Intercambios-Caritas-IS2.git
-
-# con python instalado por consola navega al directorio del proyecto
-cd Intercambios-Caritas-IS2
-
-# Crea y activa un entorno virtual (opcional pero recomendado)
-py -m venv venv
-.\venv\Scripts\activate
-
-# Instala las dependencias indicadas en requirements.txt
-pip install -r requirements.txt
-
-# Ejecuta el servidor de desarrollo
-python manage.py runserver
-```# Proyectofinal
+## Video Demostración
+https://drive.google.com/file/d/1wDOBThmBNuJN7mAJEk_Ubflv6U29nStt/view?usp=drive_link
