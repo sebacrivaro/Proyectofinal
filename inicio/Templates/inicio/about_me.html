@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Acerca de mi
+{% endblock title_head %}
+
+{% block h1_header %}About Me!{% endblock h1_header %}
+
+{% block main %}
+
+    <h3>Sebastian Alejandro Crivaro</h3>
+
+    <p>Hola buenas! mi nombre es Sebastian y tengo 22 años, soy estudiante de la carrera de licenciatura en gestion informatica en la UAI. 
+        Tengo conocimientos basicos en lenguajes como JavaScript y python y a su vez manejo intermedio de HTML.
+    </p>
+
+    <a class="btn btn-primary" href={% url "inicio:inicio" %}>Ir al inicio</a>
+
+{% endblock main %}

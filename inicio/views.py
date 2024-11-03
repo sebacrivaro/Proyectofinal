@@ -3,18 +3,21 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from inicio.models import Equipo
 from inicio.forms import EditarEquipo, BuscarEquipo
 
 from inicio.models import Jugador
 
-from django.contrib.auth.decorators import login_required
 
 def inicio(request):
     return render(request, 'inicio/index.html')
 
-class CrearEquipo(CreateView):
+def about(request):
+    return render(request, 'inicio/about_me.html')
+
+class CrearEquipo(LoginRequiredMixin, CreateView):
     model = Equipo
     template_name = "inicio/crear_equipo.html"
     success_url = reverse_lazy('inicio:listado_equipos')
@@ -40,8 +43,8 @@ class EliminarEquipo(DeleteView):
     model = Equipo
     template_name = "inicio/eliminar_equipo.html"
     success_url = reverse_lazy('inicio:listado_equipos')
-    
-class CrearJugador(CreateView):
+ 
+class CrearJugador(LoginRequiredMixin, CreateView):
     model = Jugador
     template_name = "inicio/crear_jugador.html"
     success_url = reverse_lazy('inicio:lista_jugadores')
