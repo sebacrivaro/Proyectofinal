@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title_head %}
+Ver jugadores
+{% endblock title_head %}
+
+{% block h1_header %}Ver jugadores{% endblock h1_header %}
+
+{% block main %}
+
+<button><a href={% url "inicio:crear_jugador" %}>Agregar jugadores</a></button>
+{% if jugadores %}
+<ul>
+    {% for jugador in jugadores %}
+    <li>{{jugador}}
+        <a href={% url "inicio:ver_jugador" jugador.pk %}>Ver Mas</a>
+        <a href={% url "inicio:editar_jugador" jugador.pk %}>Editar</a>
+        <a href={% url "inicio:eliminar_jugador" jugador.pk %}>Eliminar</a>
+    <p>-----------------------------------------------</p>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+
+    <p>No existen jugadores aun</p>
+
+{% endif %}
+{% endblock main %}

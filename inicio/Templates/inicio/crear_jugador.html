@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Crear Jugador
+{% endblock title_head %}
+
+{% block h1_header %}Crear Jugador{% endblock h1_header %}
+
+{% block main %}
+
+<form action={% url "inicio:crear_jugador" %} method="post">
+    {% csrf_token %}
+
+    {{form}}
+
+    <input type="submit" value="Crear jugador">
+</form>
+{% endblock main %}

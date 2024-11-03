@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title_head %}
+Ver jugador
+{% endblock title_head %}
+
+{% block h1_header %}{{jugador}}{% endblock h1_header %}
+
+{% block main %}
+
+<button><a href={% url "inicio:crear_jugador" %}>Crear Nuevo Jugador</a></button>
+        
+<form action={% url "inicio:ver_jugador" jugador.id %}>
+
+    {{form}}
+
+</form>
+
+{% if jugadores %}
+    <ul>
+        {% for jugador in jugadores %}
+        <li>
+            <li>Nombre del jugador: {{jugador.nombre}}</li>
+            <li>Numero de camiseta: {{jugador.numero_jugador}}</li>
+            <li>Equipo en el que juega: {{jugador.equipo_que_milita}}</li>
+        </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock main %}
