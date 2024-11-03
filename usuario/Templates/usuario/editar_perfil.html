@@ -10,7 +10,7 @@ Editando el perfil de {{request.user.username}}
 
 {% block main %}
 
-<form action={% url "usuario:editar_perfil" %} method='POST'>
+<form action={% url "usuario:editar_perfil" %} method='POST' enctype='multipart/form-data'>
 
     {% csrf_token %}
 

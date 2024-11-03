@@ -20,7 +20,8 @@ class FormularioDeEdicion(UserChangeForm):
     first_name = forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
     password = None
+    avatar = forms.ImageField(required=False)
     
     class Meta():
         model = User
-        fields = ['email', 'first_name', 'last_name']
+        fields = ['email', 'first_name', 'last_name', 'avatar']

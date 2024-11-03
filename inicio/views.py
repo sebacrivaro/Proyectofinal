@@ -17,7 +17,7 @@ def inicio(request):
 class CrearEquipo(CreateView):
     model = Equipo
     template_name = "inicio/crear_equipo.html"
-    success_url = reverse_lazy('inicio:ver_equipo')
+    success_url = reverse_lazy('inicio:listado_equipos')
     fields = ['nombre_equipo', 'fundacion', 'torneos_ganados']
 
 class ListaEquipos(ListView):
@@ -41,11 +41,10 @@ class EliminarEquipo(DeleteView):
     template_name = "inicio/eliminar_equipo.html"
     success_url = reverse_lazy('inicio:listado_equipos')
     
-
 class CrearJugador(CreateView):
     model = Jugador
     template_name = "inicio/crear_jugador.html"
-    success_url = reverse_lazy('inicio:ver_jugador')
+    success_url = reverse_lazy('inicio:lista_jugadores')
     fields = ['nombre', 'numero_jugador', 'equipo_que_milita']
 
 class ListaJugadores(ListView):
@@ -55,7 +54,7 @@ class ListaJugadores(ListView):
     
 class VerJugador(DetailView):
     model = Jugador
-    template_name = "inicio_ver_jugador.html"
+    template_name = "inicio/ver_jugador.html"
 
 class EditarJugador(UpdateView):
     model = Jugador

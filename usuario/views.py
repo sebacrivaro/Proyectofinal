@@ -7,6 +7,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 
+from usuario.models import DatosExtra
+
 def login(request):
     
     formulario = AuthenticationForm()
@@ -14,13 +16,11 @@ def login(request):
     if request.method == 'POST':
         formulario = AuthenticationForm(request, data=request.POST)
         if formulario.is_valid():
-            nombre_usuario = formulario.cleaned_data.get('username') 
-            constrasenia = formulario.cleaned_data.get('password') 
-            
-            
-            usuario = authenticate(username=nombre_usuario, password=constrasenia)
+            usuario = formulario.get_user()
             
             django_login(request, usuario)
+            
+            DatosExtra.objects.get_or_create(user=usuario)
             
             return redirect('inicio:inicio')
     
@@ -43,11 +43,16 @@ def register(request):
 
 @login_required
 def editar_perfil(request):
-    formulario = FormularioDeEdicion(instance=request.user)
+    datos_extra = request.user.datosextra
+    formulario = FormularioDeEdicion(instance=request.user, initial={'avatar': datos_extra.avatar})
     
     if request.method =='POST':
-        formulario = FormularioDeEdicion(request.POST, instance=request.user)
+        formulario = FormularioDeEdicion(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
+            
+            datos_extra.avatar = formulario.cleaned_data['avatar']
+            
+            datos_extra.save()
             
             formulario.save()
             
