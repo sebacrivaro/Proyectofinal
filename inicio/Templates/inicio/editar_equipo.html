@@ -9,6 +9,7 @@ Editar Equipo
 {% block main %}
 
 <form action={% url "inicio:editar_equipo" equipo.id%} method="post">
+    
     {% csrf_token %}
 
     {{form}}

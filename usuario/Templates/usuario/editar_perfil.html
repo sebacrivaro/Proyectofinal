@@ -22,4 +22,6 @@ Editando el perfil de {{request.user.username}}
 
 <a href={% url "usuario:cambiar_password" %}>Cambiar Password</a>
 
+<a href={% url "usuario:ver_perfil" request.user.username %}>Ver perfil</a>
+
 {% endblock main %}

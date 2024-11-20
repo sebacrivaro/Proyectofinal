@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title_head %}
+Ver usuario
+{% endblock title_head %}
+
+{% block h1_header %}{{usuario}}{% endblock h1_header %}
+
+{% block main %}
+
+<button><a href={% url "usuario:editar_perfil" %}>Editar perfil</a></button>
+        
+<form action={% url "usuario:ver_perfil" usuario.username %} method="post">
+    {% csrf_token %}
+
+    {{form}}
+
+    <button type="submit">Volver a editar perfil</button>
+
+</form>
+
+
+{% endblock main %}

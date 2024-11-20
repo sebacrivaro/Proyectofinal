@@ -21,7 +21,7 @@ class CrearEquipo(LoginRequiredMixin, CreateView):
     model = Equipo
     template_name = "inicio/crear_equipo.html"
     success_url = reverse_lazy('inicio:listado_equipos')
-    fields = ['nombre_equipo', 'fundacion', 'torneos_ganados']
+    fields = ['nombre_equipo', 'fundacion', 'torneos_ganados','escudo']
 
 class ListaEquipos(ListView):
     model = Equipo

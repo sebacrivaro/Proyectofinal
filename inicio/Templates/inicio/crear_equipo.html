@@ -9,6 +9,7 @@ Crear Equipo
 {% block main %}
 
 <form action={% url "inicio:crear_equipo" %} method="post">
+    
     {% csrf_token %}
 
     {{form}}

@@ -6,8 +6,9 @@ from django.db import models
 class Equipo(models.Model):
     
     nombre_equipo = models.CharField(max_length=20)
-    fundacion = models.IntegerField()
+    fundacion = models.DateField()
     torneos_ganados = models.IntegerField()
+    escudo = models.ImageField(upload_to='escudos', blank=True, null= True)
     
     def __str__(self):
         return (f'id:{self.id}, Nombre del equipo:{self.nombre_equipo}, Fundacion:{self.fundacion}, Cantidad de torneos:{self.torneos_ganados}')
