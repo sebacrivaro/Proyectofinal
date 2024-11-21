@@ -19,4 +19,3 @@ Unicamente los usuarios registrados y logueados podran crear jugadores y equipos
 
 
 ## Video Demostración
-https://drive.google.com/file/d/1wDOBThmBNuJN7mAJEk_Ubflv6U29nStt/view?usp=drive_link

@@ -9,7 +9,7 @@ class FormularioDeRegistroDeUsuario(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Contrasenia', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir contrasenia', widget=forms.PasswordInput)
-    edad = forms.IntegerField()
+    edad= forms.IntegerField()
     equipo_fav = forms.CharField(max_length=20)
     deporte_fav = forms.CharField(max_length=20)
     

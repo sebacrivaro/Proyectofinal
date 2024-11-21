@@ -25,7 +25,7 @@ def login(request):
             
             django_login(request, usuario)
             
-            DatosExtra.objects.get_or_create(user=usuario)
+            DatosExtra.objects.get_or_create(user=usuario, defaults={'edad': 0})
             
             return redirect('inicio:inicio')
     
