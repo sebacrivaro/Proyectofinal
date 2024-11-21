@@ -20,3 +20,4 @@ urlpatterns = [
     path('jugador/<int:pk>/editar/', views.EditarJugador.as_view(), name= 'editar_jugador'),       
     path('jugador/<int:pk>/eliminar/', views.EliminarJugador.as_view(), name= 'eliminar_jugador'),       
 ]
+

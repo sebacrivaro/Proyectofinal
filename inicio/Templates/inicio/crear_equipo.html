@@ -8,7 +8,7 @@ Crear Equipo
 
 {% block main %}
 
-<form action={% url "inicio:crear_equipo" %} method="post">
+<form action={% url "inicio:crear_equipo" %} method="post" enctype="multipart/form-data">
     
     {% csrf_token %}
 

@@ -4,20 +4,28 @@
 Ver usuario
 {% endblock title_head %}
 
-{% block h1_header %}{{usuario}}{% endblock h1_header %}
+{% block h1_header %}Vista detallada del usuario: {{usuario}}{% endblock h1_header %}
 
 {% block main %}
 
 <button><a href={% url "usuario:editar_perfil" %}>Editar perfil</a></button>
         
 <form action={% url "usuario:ver_perfil" usuario.username %} method="post">
-    {% csrf_token %}
-
+    
     {{form}}
 
-    <button type="submit">Volver a editar perfil</button>
-
 </form>
+
+    {% if usuario %}
+        <p></p>
+        <h1>Perfil de {{ usuario.username }}</h1>
+        <h3>Nombre: {{ usuario.first_name }}</h3>
+        <h3>Apellido: {{ usuario.last_name }}</h3>
+        <h3>Email: {{ usuario.email }}</h3>
+        <h3>Edad: {{ usuario.datosextra.edad }} años</h3>
+        <h3>Equipo favorito: {{ usuario.datosextra.equipo_fav }}</h3>
+        <h3>Deporte favorito: {{ usuario.datosextra.deporte_fav }}</h3>
+    {% endif %}
 
 
 {% endblock main %}

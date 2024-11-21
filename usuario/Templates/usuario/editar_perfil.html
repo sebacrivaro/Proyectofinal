@@ -16,12 +16,10 @@ Editando el perfil de {{request.user.username}}
 
     {{form}}
     
-    <input type="submit" value='Editar'>
+    <input type="submit" value='Confirmar edicion'>
 
 </form>
 
 <a href={% url "usuario:cambiar_password" %}>Cambiar Password</a>
-
-<a href={% url "usuario:ver_perfil" request.user.username %}>Ver perfil</a>
 
 {% endblock main %}
